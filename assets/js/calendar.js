@@ -80,6 +80,17 @@ function drawCalendar() {
 
         day.innerHTML = d;
 
+        // only available dates can be selected, so we add an event listener only if the survey exists for that date
+        if (survey) {
+
+            day.addEventListener("click", () => {
+
+                selectDate(fullDate);
+
+            });
+
+        }
+
         calendar.appendChild(day);
 
     }
