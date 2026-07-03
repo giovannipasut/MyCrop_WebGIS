@@ -336,6 +336,10 @@ BOTTOM
 
 .chart-box{
 
+    display:flex;
+
+    flex-direction:column;
+
     background:#fff;
 
     border:1px solid #ddd;
@@ -344,6 +348,7 @@ BOTTOM
 
     overflow:hidden;
 
+    height:540px;
 }
 
 /* =========================================
@@ -534,9 +539,13 @@ GRAPH AREA
 
 .chart-container{
 
-    height:340px;
+    flex:1;
+
+    min-height:340px;
 
     padding:20px;
+
+    position:relative;
 
 }
 
