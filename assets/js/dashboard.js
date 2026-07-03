@@ -88,3 +88,13 @@ function updateUAVChart() {
     console.log("UAV chart updated");
 
 }
+
+document.querySelectorAll(".index-pill").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        button.classList.toggle("active");
+
+    });
+
+});

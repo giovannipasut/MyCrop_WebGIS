@@ -79,27 +79,118 @@
         <!-- BOTTOM -->
         <section class="bottom-panel">
 
-            <div class="chart-box">
-
-                Sentinel Graph
-
-            </div>
+            <!-- Sentinel -->
 
             <div class="chart-box">
 
-                UAV Graph
+                <div class="chart-toolbar">
+
+                    <div class="toolbar-header">
+
+                        <h3>Sentinel Graph</h3>
+
+                        <div class="toolbar-actions">
+
+                            <button class="toolbar-btn" id="resetSentinel">
+
+                                ⟳
+
+                            </button>
+
+                            <button class="toolbar-btn" id="fullscreenSentinel">
+
+                                ⛶
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="index-selector" id="sentinel-selector">
+
+
+                        <button class="index-pill active ndvi" data-index="NDVI">NDVI</button>
+
+                        <button class="index-pill active gndvi" data-index="GNDVI">GNDVI</button>
+
+                        <button class="index-pill active ndre" data-index="NDRE">NDRE</button>
+
+                        <button class="index-pill active ndmi" data-index="NDMI">NDMI</button>
+
+                        <button class="index-pill active msi" data-index="MSI">MSI</button>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="sentinelChart"></canvas>
+
+                </div>
 
             </div>
 
+
+            <!-- UAV -->
+
+            <div class="chart-box">
+
+                <div class="chart-toolbar">
+
+                    <div class="toolbar-header">
+
+                        <h3>UAV Graph</h3>
+
+                        <div class="toolbar-actions">
+
+                            <button class="toolbar-btn" id="resetUAV">
+
+                                ⟳
+
+                            </button>
+
+                            <button class="toolbar-btn" id="fullscreenUAV">
+
+                                ⛶
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="index-selector" id="uav-selector">
+
+                        <button class="index-pill active ndvi" data-index="NDVI">NDVI</button>
+
+                        <button class="index-pill active gndvi" data-index="GNDVI">GNDVI</button>
+
+                        <button class="index-pill active ndre" data-index="NDRE">NDRE</button>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="uavChart"></canvas>
+
+                </div>
+
+            </div>
         </section>
+
 
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/js/map.js"></script>
-    <script src="assets/js/dashboard.js"></script> <!-- before calendar becouse function can work without dependency by calendar -->
+    <script src="assets/js/dashboard.js"></script>
+    <!-- before calendar becouse function can work without dependency by calendar -->
     <script src="assets/js/calendar.js"></script>
-    
+
 
 </body>
 
