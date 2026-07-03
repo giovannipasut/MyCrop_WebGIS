@@ -114,49 +114,84 @@ function createSentinelChart() {
 
 function buildSentinelDatasets(data) {
 
-    return [
+    const datasets = [];
 
-        {
+    // NDVI
+    if (document.querySelector("#sentinel-selector .ndvi").classList.contains("active")) {
+
+        datasets.push({
+
             label: "NDVI",
             data: data.map(row => row["mean NDVI"]),
             borderColor: "#2f6fdb",
             backgroundColor: "#2f6fdb",
             tension: 0.25
-        },
 
-        {
+        });
+
+    }
+
+    // GNDVI
+    if (document.querySelector("#sentinel-selector .gndvi").classList.contains("active")) {
+
+        datasets.push({
+
             label: "GNDVI",
             data: data.map(row => row["mean GNDVI"]),
             borderColor: "#ef6c00",
             backgroundColor: "#ef6c00",
             tension: 0.25
-        },
 
-        {
+        });
+
+    }
+
+    // NDRE
+    if (document.querySelector("#sentinel-selector .ndre").classList.contains("active")) {
+
+        datasets.push({
+
             label: "NDRE",
             data: data.map(row => row["mean NDRE"]),
             borderColor: "#f9a825",
             backgroundColor: "#f9a825",
             tension: 0.25
-        },
 
-        {
+        });
+
+    }
+
+    // NDMI
+    if (document.querySelector("#sentinel-selector .ndmi").classList.contains("active")) {
+
+        datasets.push({
+
             label: "NDMI",
             data: data.map(row => row["mean NDMI"]),
             borderColor: "#2e7d32",
             backgroundColor: "#2e7d32",
             tension: 0.25
-        },
 
-        {
+        });
+
+    }
+
+    // MSI
+    if (document.querySelector("#sentinel-selector .msi").classList.contains("active")) {
+
+        datasets.push({
+
             label: "MSI",
             data: data.map(row => row["mean MSI"]),
             borderColor: "#9c27b0",
             backgroundColor: "#9c27b0",
             tension: 0.25
-        }
 
-    ];
+        });
+
+    }
+
+    return datasets;
 
 }
 
@@ -206,3 +241,41 @@ function createUAVChart() {
     });
 
 }
+
+// ==========================================
+// FULLSCREEN
+// ==========================================
+
+function toggleFullscreen(chartId) {
+
+    const chartBox = document
+        .getElementById(chartId)
+        .closest(".chart-box");
+
+    if (!document.fullscreenElement) {
+
+        chartBox.requestFullscreen();
+
+    } else {
+
+        document.exitFullscreen();
+
+    }
+
+}
+// listener for fullscreen button
+document
+    .getElementById("fullscreenSentinel")
+    .addEventListener("click", () => {
+
+        toggleFullscreen("sentinelChart");
+
+    });
+
+document
+    .getElementById("fullscreenUAV")
+    .addEventListener("click", () => {
+
+        toggleFullscreen("uavChart");
+
+    });

@@ -111,6 +111,12 @@ document.querySelectorAll(".index-pill").forEach(button => {
 
         button.classList.toggle("active");
 
+        if (selectedDate) {
+
+            updateSentinelSection();
+
+        }
+
     });
 
 });
