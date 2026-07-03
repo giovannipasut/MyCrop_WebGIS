@@ -63,7 +63,23 @@ function updateDashboard() {
 
 function updateSentinelSection() {
 
-    console.log("Sentinel section updated");
+    if (!selectedDate) return;
+
+    const selectedYear = selectedDate.substring(0, 4);
+
+    const filteredData = sentinelData.filter(row => {
+
+        return (
+            row.year.toString() === selectedYear &&
+            row.date <= selectedDate
+        );
+
+    });
+
+    console.log("Selected year:", selectedYear);
+    console.log("Sentinel records:", filteredData.length);
+
+    updateSentinelChart(filteredData);
 
 }
 
