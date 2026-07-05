@@ -30,16 +30,64 @@ L.tileLayer(
 
 ).addTo(map);
 
-// Marker del campo
+// ==========================================
+// UAV GRID (GeoServer WFS)
+// ==========================================
 
-L.marker(field)
+let uavGridLayer = null;
 
-    .addTo(map)
+fetch(
+    "http://win924.ad.utwente.nl/geoserver/ClimateCenter/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ClimateCenter:mycrop_uav_grid&outputFormat=application/json&srsName=EPSG:4326"
+)
+.then(response => response.json())
+.then(data => {
 
-    .bindPopup(
+    console.log("Features:", data.features.length);
 
-        "<b>Experimental Wheat Field</b><br>MyCrop Study Area"
+    uavGridLayer = L.geoJSON(data, {
 
-    )
+        style: {
+            color: "#222",
+            weight: 0.6,
+            fillOpacity: 0
+        },
 
-    .openPopup();
+        onEachFeature: function(feature, layer){
+
+            layer.on({
+
+                mouseover: function(){
+
+                    layer.setStyle({
+                        color: "#2196f3",
+                        weight: 2
+                    });
+
+                },
+
+                mouseout: function(){
+
+                    uavGridLayer.resetStyle(layer);
+
+                },
+
+                click: function(){
+
+                    console.log("Selected cell:", feature.properties.cell_id);
+
+                }
+
+            });
+
+        }
+
+    }).addTo(map);
+
+    map.fitBounds(uavGridLayer.getBounds());
+
+})
+.catch(error => {
+
+    console.error(error);
+
+});
