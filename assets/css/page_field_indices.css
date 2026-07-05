@@ -2,6 +2,7 @@
    GENERAL
 ===================================================== */
 
+
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
@@ -103,36 +104,6 @@ body {
 
     margin: 90px 0;
 }
-
-.page-section.reverse {
-
-    flex-direction: row-reverse;
-    max-width: 950px;
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.page-image {
-
-    flex: 1;
-}
-
-.page-image img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 6px;
-}
-
 
 /* =====================================================
    TEXT
@@ -263,9 +234,9 @@ body {
 
 .platform-section{
 
-    max-width:950px;
+    max-width: var(--content-width);
 
-    margin:90px auto;
+    margin: var(--space-xl) auto;
 }
 
 .platform-images {
@@ -353,29 +324,15 @@ body {
     background: #fafafa;
 }
 
-.platform-description {
-
-    max-width: 950px;
-
-    margin: 3rem auto 0;
-
-    text-align: left;
-}
-
-.platform-description p {
-
-    font-size: 1.1rem;
-
-    line-height: 1.9;
-}
 
 /* =====================================================
    VEGETATION INDICES
 ===================================================== */
+.platform-section{
 
-.indices-section {
+    max-width: var(--content-width);
 
-    margin: 80px 0;
+    margin: var(--space-xl) auto;
 }
 
 .indices-table {
@@ -443,57 +400,11 @@ body {
     line-height: 1.4;
 }
 
-.indices-description {
 
-    max-width: 900px;
-
-    margin: 4rem auto 0;
-
-    text-align: center;
-}
-
-.indices-description p {
-
-    font-size: 1.1rem;
-
-    line-height: 1.9;
-}
 
 /* =====================================================
    STRESS ASSESSMENT 
 ===================================================== */
-.stress-layout {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 60px;
-
-    margin-top: 45px;
-}
-
-.stress-info {
-
-    flex: 1;
-}
-
-.stress-figure {
-
-    flex: 1.4;
-}
-
-.stress-figure img {
-
-    width: 100%;
-
-    height: auto;
-
-    display: block;
-
-    border-radius: 8px;
-
-}
 
 .workflow-float{
 
@@ -515,9 +426,8 @@ body {
 
 .summary-section {
 
-    margin: 90px 0;
+    margin: var(--space-xl) 0;
 
-    text-align: left;
 }
 
 .summary-section .page-text {
