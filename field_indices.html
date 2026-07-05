@@ -32,7 +32,7 @@
 		<!-- REMOTE SENSING PLATFORMS -->
 
 
-		<section class="page-section platform-section">
+		<section class="platform-section">
 
 			<div class="page-text">
 
@@ -70,7 +70,7 @@
 
 		</section>
 
-		<div class="platform-table">
+		<div class="platform-table table-block">
 
 			<table>
 
@@ -149,7 +149,7 @@
 
 			</div>
 
-			<div class="indices-table">
+			<div class="indices-table table-block">
 
 				<table>
 
@@ -330,21 +330,33 @@
 					environmental conditions.
 				</p>
 
-				<img src="images/field_indices_images/stress_assessment_workflow.png" class="workflow-float"
-					alt="Stress Assessment Workflow">
+				<div class="stress-layout">
 
-				<p>
-					Each vegetation index and canopy temperature layer is first analysed
-					independently. Rather than using fixed thresholds, MyCrop classifies
-					each variable according to its percentile distribution, allowing the
-					method to automatically adapt to the conditions of every survey.
+					<div class="stress-image">
 
-					For vegetation indices, lower percentile values generally indicate
-					reduced vegetation vigor and therefore higher stress. In contrast,
-					higher canopy temperatures are associated with water deficit and
-					thermal stress. The classified variables are then combined to obtain
-					a single Stress Score for every grid cell.
-				</p>
+						<img src="images/field_indices_images/stress_assessment_workflow.png"
+							alt="Stress Assessment Workflow">
+
+					</div>
+
+					<div class="stress-text">
+
+						<p>
+							Each vegetation index and canopy temperature layer is first analysed
+							independently. Rather than using fixed thresholds, MyCrop classifies
+							each variable according to its percentile distribution, allowing the
+							method to automatically adapt to the conditions of every survey.
+
+							For vegetation indices, lower percentile values generally indicate
+							reduced vegetation vigor and therefore higher stress. In contrast,
+							higher canopy temperatures are associated with water deficit and
+							thermal stress. The classified variables are then combined to obtain
+							a single Stress Score for every grid cell.
+						</p>
+
+					</div>
+
+				</div>
 
 			</div>
 

@@ -91,29 +91,30 @@ body {
    CONTENT SECTIONS
 ===================================================== */
 
-.page-section {
-    max-width: 950px;
+.platform-section{
 
-    display: flex;
+    max-width:950px;
 
-    align-items: center;
+    margin:90px auto 40px;
 
-    justify-content: space-between;
+    display:grid;
 
-    gap: 70px;
+    grid-template-columns:40% 60%;
 
-    margin: 90px 0;
+    column-gap:45px;
+
+    align-items:start;
+
 }
 
 /* =====================================================
    TEXT
 ===================================================== */
 
-.page-text {
+.page-text{
 
-    flex: 1;
-    max-width: 950px;
-    
+    width:100%;
+
 }
 
 .page-text h2 {
@@ -129,11 +130,14 @@ body {
     margin-bottom: 25px;
 }
 
-.page-text p {
+.page-text p{
 
-    font-size: 1.15rem;
+    margin:0;
 
-    line-height: 1.9;
+    font-size:1.15rem;
+
+    line-height:1.8;
+
 }
 
 
@@ -208,215 +212,197 @@ body {
    MOBILE
 ===================================================== */
 
-@media (max-width: 900px) {
+@@media (max-width:900px){
 
-    .page-section,
-    .page-section.reverse {
+    .platform-section{
 
-        flex-direction: column;
+        grid-template-columns:1fr;
+
+        row-gap:40px;
+
     }
 
-    .page-header-content h1 {
+    .platform-images{
 
-        font-size: 2.3rem;
+        grid-template-columns:1fr 1fr;
+
     }
 
-    .page-text {
+    .stress-layout{
 
-        text-align: center;
+        flex-direction:column;
+
+    }
+
+    .page-header-content h1{
+
+        font-size:2.3rem;
+
+    }
+
+    .page-text{
+
+        text-align:center;
+
     }
 
 }
 
 /* =====================================================
-   REMOTE SENSING PLATFORMS
+   TABLES
 ===================================================== */
 
-.platform-section{
+.table-block{
 
-    max-width: var(--content-width);
+    max-width:950px;
 
-    margin: var(--space-xl) auto;
+    margin:40px auto;
+
 }
 
-.platform-images {
-    margin-top: 95px;
-    flex: 1;
+.table-block table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:1rem;
+
+}
+
+.table-block th{
+
+    background:#4eb980;
+
+    color:#fff;
+
+    padding:16px 20px;
+
+    text-align:left;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+.table-block td{
+
+    padding:16px 20px;
+
+    border-bottom:1px solid #e5e5e5;
+
+    vertical-align:middle;
+
+}
+
+.table-block tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+
+/* =====================================================
+   PLATFORM TABLE
+===================================================== */
+
+.platform-table{
+
+    width:100%;
+
+}
+.platform-images{
 
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 2.5rem;
+    gap: 25px;
+
+    margin-top: 95px;
+
 }
 
-.platform-card {
+.platform-card img{
 
-    text-align: center;
+    width:100%;
+
+    display:block;
+
+    border-radius:8px;
+
 }
-
-.platform-card img {
-
-    width: 100%;
-
-    max-width: 260px;
-
-    display: block;
-
-    margin: auto;
-
-    object-fit: contain;
-}
-
-.platform-card h3 {
-
-    margin-top: 1rem;
-
-    font-size: 1rem;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-
-    color: #555;
-}
-
-.platform-table {
-
-    margin: 4rem auto;
-    max-width: 950px;
-    width: 100%;
-}
-
-.platform-table table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-    font-size: 1rem;
-}
-
-.platform-table th {
-
-    background: #4eb980;
-
-    color: #fff;
-
-    padding: 15px;
-
-    text-align: left;
-
-    text-transform: uppercase;
-
-    letter-spacing: .08em;
-}
-
-.platform-table td {
-
-    padding: 14px 18px;
-
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.platform-table tbody tr:nth-child(even) {
-
-    background: #fafafa;
-}
-
 
 /* =====================================================
-   VEGETATION INDICES
+   VEGETATION TABLE
 ===================================================== */
-.platform-section{
 
-    max-width: var(--content-width);
+.indices-table{
 
-    margin: var(--space-xl) auto;
+    width:100%;
+
 }
 
-.indices-table {
+.indices-table strong{
 
-    width: 100%;
-    max-width: 950px;
-    margin: 4rem auto;
+    display:block;
+
+    margin-bottom:4px;
+
+    font-size:1.05rem;
+
+    color:#333;
+
 }
 
-.indices-table table {
+.indices-table span{
 
-    width: 100%;
+    display:block;
 
-    border-collapse: collapse;
+    font-size:.86rem;
+
+    line-height:1.4;
+
+    color:#888;
+
 }
-
-.indices-table th {
-
-    background: #4eb980;
-
-    color: #fff;
-
-    text-align: left;
-
-    padding: 16px 20px;
-
-    text-transform: uppercase;
-
-    letter-spacing: .08em;
-}
-
-.indices-table td {
-
-    padding: 18px 20px;
-
-    border-bottom: 1px solid #e8e8e8;
-
-    vertical-align: middle;
-}
-
-.indices-table tbody tr:nth-child(even) {
-
-    background: #fafafa;
-}
-
-.indices-table strong {
-
-    display: block;
-
-    font-size: 1.05rem;
-
-    color: #333;
-
-    margin-bottom: 4px;
-}
-
-.indices-table span {
-
-    display: block;
-
-    font-size: .86rem;
-
-    color: #888;
-
-    line-height: 1.4;
-}
-
 
 
 /* =====================================================
    STRESS ASSESSMENT 
 ===================================================== */
 
-.workflow-float{
+.stress-layout{
 
-    float:left;
+    display:flex;
 
-    width:420px;
+    align-items:flex-start;
 
-    margin:10px 40px 25px 0;
+    gap:40px;
+
+    margin-top:40px;
+
+}
+
+.stress-image{
+
+    flex:0 0 420px;
+
+}
+
+.stress-image img{
+
+    width:100%;
 
     border-radius:8px;
 
-    
+}
+
+.stress-text{
+
+    flex:1;
+
 }
 
 
@@ -424,9 +410,11 @@ body {
    FROM INDICES TO STRESS MAPS 
 ===================================================== */
 
-.summary-section {
+.summary-section{
 
-    margin: var(--space-xl) 0;
+    max-width:950px;
+
+    margin:70px auto;
 
 }
 
@@ -442,11 +430,10 @@ body {
     margin-bottom: 25px;
 }
 
-.summary-image {
+.summary-image{
 
-    margin: 45px auto;
+    margin:40px 0;
 
-    max-width: 950px;
 }
 
 .summary-image img {
@@ -468,6 +455,6 @@ body {
 
 .summary-section .page-text:last-child {
 
-    margin-top: 45px;
+    margin-top: 40px;
 }
 
