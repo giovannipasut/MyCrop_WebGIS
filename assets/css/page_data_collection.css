@@ -3,22 +3,34 @@
 ===================================================== */
 
 body {
+
     margin: 0;
-    font-family: 'Source Sans Pro', sans-serif;
+
+    font-family: "Source Sans Pro", sans-serif;
+
     background: #ffffff;
+
     color: #555;
+
 }
 
 .page-content {
+
     width: min(1300px, 92%);
+
     margin: 0 auto;
+
 }
 
-.section-divider{
+.section-divider {
+
     width: 75%;
+
     max-width: 1100px;
+
     height: 1px;
-    margin: 70px auto;
+
+    margin: 60px auto;
 
     background: linear-gradient(
         to right,
@@ -27,43 +39,50 @@ body {
         #dcdcdc 85%,
         transparent
     );
+
 }
+
 
 /* =====================================================
    TOP & BOTTOM BANNER
 ===================================================== */
 
 .page-banner {
+
     width: 100%;
+
     height: 120px;
 
     background-image: url("../../images/field.png");
+
     background-size: cover;
+
     background-repeat: no-repeat;
+
     background-position: center 72%;
 
-    margin: 0 auto;
-}
-
-.page-footer {
-    transform: rotate(180deg);
 }
 
 
 /* =====================================================
-   PAGE TITLE
+   PAGE HEADER
 ===================================================== */
 
 .page-header-content {
 
     text-align: center;
 
-    padding: 60px 0 30px 0;
+    padding: 60px 0 30px;
+
 }
 
 .page-header-content h1 {
 
+    margin: 0 0 .35em;
+
     font-size: 3rem;
+
+    font-weight: 700;
 
     letter-spacing: .18em;
 
@@ -71,79 +90,52 @@ body {
 
     color: #333;
 
-    margin-bottom: .35em;
 }
 
 .page-header-content p {
 
     max-width: 900px;
 
-    margin: 0 auto; 
-    
+    margin: 0 auto;
+
     font-size: 1.25rem;
+
+    line-height: 1.7;
 
     letter-spacing: .08em;
 
     color: #777;
+
 }
 
 
 /* =====================================================
-   CONTENT SECTIONS
+   GENERIC SECTIONS
 ===================================================== */
 
 .page-section {
+
+    max-width: 950px;
+
+    margin: 70px auto;
 
     display: flex;
 
     align-items: center;
 
-    justify-content: space-between;
+    gap: 50px;
 
-    gap: 70px;
-
-    margin: 90px 0;
 }
-
-.page-section.reverse {
-
-    flex-direction: row-reverse;
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.page-image {
-
-    flex: 1;
-}
-
-.page-image img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 6px;
-}
-
-
-/* =====================================================
-   TEXT
-===================================================== */
 
 .page-text {
 
-    flex: 1;
+    flex: 0 0 52%;
+
 }
 
 .page-text h2 {
+
+    margin: 0 0 25px;
 
     font-size: 2rem;
 
@@ -153,14 +145,32 @@ body {
 
     color: #444;
 
-    margin-bottom: 25px;
 }
 
 .page-text p {
 
+    margin: 0;
+
     font-size: 1.15rem;
 
-    line-height: 1.9;
+    line-height: 1.8;
+
+}
+
+.page-image {
+
+    flex: 0 0 48%;
+
+}
+
+.page-image img {
+
+    display: block;
+
+    width: 100%;
+
+    border-radius: 8px;
+
 }
 
 
@@ -170,14 +180,17 @@ body {
 
 .page-end {
 
-    text-align: center;
-
     max-width: 900px;
 
     margin: 120px auto;
+
+    text-align: center;
+
 }
 
 .page-end h2 {
+
+    margin-bottom: 25px;
 
     font-size: 2.2rem;
 
@@ -187,16 +200,16 @@ body {
 
     color: #333;
 
-    margin-bottom: 25px;
 }
 
 .page-end p {
+
+    margin-bottom: 40px;
 
     font-size: 1.15rem;
 
     line-height: 1.8;
 
-    margin-bottom: 40px;
 }
 
 
@@ -212,7 +225,7 @@ body {
 
     background: #55505a;
 
-    color: white;
+    color: #fff;
 
     text-decoration: none;
 
@@ -220,37 +233,196 @@ body {
 
     letter-spacing: .12em;
 
-    border-radius: 5px;
+    border-radius: 6px;
 
-    transition: .25s;
+    transition: background .25s ease;
+
 }
 
 .page-button:hover {
 
     background: #4eb980;
+
+}
+
+/* =====================================================
+   UAV DATA ACQUISITION
+===================================================== */
+
+.summary-section {
+
+    max-width: 950px;
+
+    margin: 70px auto;
+
+}
+
+.summary-section .page-text {
+
+    max-width: 950px;
+
+    margin-bottom: 40px;
+
+}
+
+.uav-acquisition {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+
+    align-items: start;
+
+}
+
+.uav-card {
+
+    text-align: center;
+
+}
+
+.uav-card img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:8px;
+
+    margin-bottom:18px;
+
+    aspect-ratio:4/3;
+
+    object-fit:cover;
+
+}
+
+.uav-card h3{
+
+    margin:0 0 18px;
+
+    font-size:1.15rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    color:#333;
+
+}
+
+.uav-card p{
+
+    margin:0;
+
+    font-size:1rem;
+
+    line-height:1.6;
+
+    color:#666;
+
 }
 
 
 /* =====================================================
-   MOBILE
+   DATABASE GENERATION
+===================================================== */
+
+.database-layout {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+.database-image {
+
+    flex: 0 0 48%;
+
+}
+
+.database-image img {
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 8px;
+
+}
+
+.database-text {
+
+    flex: 0 0 52%;
+
+}
+
+.database-text p {
+
+    margin: 0 0 22px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+}
+
+.database-text p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+/* =====================================================
+   RESPONSIVE
 ===================================================== */
 
 @media (max-width: 900px) {
 
-    .page-section,
-    .page-section.reverse {
+    .page-section {
 
         flex-direction: column;
+
+        gap: 40px;
+
+    }
+
+    .database-layout {
+
+        flex-direction: column;
+
+        gap: 40px;
+
+    }
+
+    .uav-acquisition {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+    }
+
+    .page-text,
+    .database-text,
+    .page-image,
+    .database-image {
+
+        flex: 1;
+
+        text-align: center;
+
     }
 
     .page-header-content h1 {
 
         font-size: 2.3rem;
-    }
 
-    .page-text {
-
-        text-align: center;
     }
 
 }
