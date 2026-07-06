@@ -26,134 +26,148 @@
 		</p>
 
 	</header>
-<div class="section-divider"></div>
+	<div class="section-divider"></div>
 	<main class="page-content">
 
 		<!-- Study Area -->
 		<section class="page-section">
 
-			<div class="page-image">
-				<img src="images/data_collection_images/flight.png" alt="Study Area">
+			<div class="page-text">
+
+				<h2>Preliminary Field Preparation</h2>
+
+				<p>
+					Before any UAV mission, the study area is accurately prepared to
+					ensure reliable and repeatable data acquisition. The field boundary
+					(Area of Interest, AOI) is first delineated using high-precision
+					RTK/GNSS surveying, providing centimetre-level positioning for all
+					subsequent analyses. At the same time, ground observations and
+					reference measurements are collected to support the interpretation
+					and validation of remote sensing products.
+				</p>
+
 			</div>
+
+			<div class="page-image">
+
+				<img src="images/data_collection_images/preliminary_field_preparation.png"
+					alt="Preliminary field preparation using RTK/GNSS surveying">
+
+			</div>
+
+		</section>
+		<!-- UAV DATA ACQUISITION -->
+		<section class="summary-section">
 
 			<div class="page-text">
 
-				<h2>Study Area</h2>
+				<h2>UAV Data Acquisition</h2>
 
 				<p>
-					The study was carried out on an experimental wheat field.
-					Before each survey, the Area of Interest (AOI) was defined
-					and flight permissions and environmental conditions were checked.
+					Once the field has been prepared, the UAV mission is carried out
+					following a predefined flight plan to guarantee complete and
+					consistent coverage of the Area of Interest. During a single survey,
+					complementary datasets are collected, combining high-resolution
+					multispectral imagery with thermal observations to capture different
+					aspects of crop condition.
 				</p>
+
+			</div>
+
+
+			<div class="uav-acquisition">
+
+				<div class="uav-card">
+
+					<img src="images/data_collection_images/drone_plan.png" alt="UAV flight planning">
+
+					<h3>Flight Planning</h3>
+
+					<p>
+						Automated flight missions ensure complete field coverage with
+						consistent altitude, overlap and acquisition geometry.
+					</p>
+
+				</div>
+
+
+				<div class="uav-card">
+
+					<img src="images/data_collection_images/multispectral.gif" alt="Multispectral acquisition">
+
+					<h3>Multispectral Imaging</h3>
+
+					<p>
+						Multispectral imagery provides the spectral information required
+						to derive vegetation indices describing crop vigor and health.
+					</p>
+
+				</div>
+
+
+				<div class="uav-card">
+
+					<img src="images/data_collection_images/thermal.png" alt="Thermal acquisition">
+
+					<h3>Thermal Imaging</h3>
+
+					<p>
+						Thermal imagery measures canopy temperature, supporting the
+						detection of water stress and plant physiological conditions.
+					</p>
+
+				</div>
 
 			</div>
 
 		</section>
 		<div class="section-divider"></div>
-		<!-- UAV Platform -->
-		<section class="page-section reverse">
 
-			<div class="page-image">
-				<img src="images/data_collection_images/drone_plan.png" alt="UAV Platform">
-			</div>
+		<!-- DATABASE GENERATION -->
+
+		<section class="summary-section">
 
 			<div class="page-text">
 
-				<h2>UAV Platform</h2>
+				<h2>Database Generation</h2>
 
-				<p>
-					Data were collected using a UAV equipped with multispectral
-					and thermal sensors. Flight altitude, overlap and speed were
-					optimized to guarantee complete field coverage.
-				</p>
+			</div>
+
+
+			<div class="database-layout">
+
+				<div class="database-image">
+
+					<img src="images/data_collection_images/workflow.png" alt="Database generation workflow">
+
+				</div>
+
+
+				<div class="database-text">
+
+					<p>
+						After data acquisition, all collected imagery is organised into
+						a structured geospatial database. RGB, multispectral and thermal
+						datasets are stored together with acquisition metadata,
+						georeferencing information and survey dates to ensure complete
+						traceability of each mission.
+					</p>
+
+					<p>
+						This standardized database provides the foundation for the
+						subsequent processing pipeline, enabling vegetation index
+						computation, canopy temperature analysis and the generation of
+						crop stress maps within the MyCrop WebGIS platform.
+					</p>
+
+				</div>
 
 			</div>
 
 		</section>
-<div class="section-divider"></div>
-		<!-- Multispectral -->
-		<section class="page-section">
-
-			<div class="page-image">
-				<img src="images/data_collection_images/multispectral.gif" alt="Multispectral">
-
-			</div>
-
-			<div class="page-text">
-
-				<h2>Multispectral Acquisition</h2>
-
-				<p>
-					Five spectral bands were acquired simultaneously to describe
-					crop reflectance and vegetation status under different wavelengths.
-				</p>
-
-			</div>
-
-		</section>
-<div class="section-divider"></div>
-		<!-- Thermal -->
-		<section class="page-section reverse">
-
-			<div class="page-image">
-				<img src="images/data_collection_images/thermal.png" alt="Thermal Survey">
-			</div>
-
-			<div class="page-text">
-
-				<h2>Thermal Survey</h2>
-
-				<p>
-					Thermal imagery was collected during the same flight to identify
-					canopy temperature variations related to water stress.
-				</p>
-
-			</div>
-
-		</section>
-<div class="section-divider"></div>
-		<!-- Ground -->
-		<section class="page-section">
-
-			<div class="page-image">
-				<img src="images/data_collection_images/gcp.png" alt="Ground Measurements">
-			</div>
-
-			<div class="page-text">
-
-				<h2>Ground Measurements</h2>
-
-				<p>
-					Field observations and reference measurements were collected
-					to validate remotely sensed information and support the
-					interpretation of crop stress.
-				</p>
-
-			</div>
-
-		</section>
-<div class="section-divider"></div>
-		<!-- Dataset -->
-		<section class="page-section reverse">
-
-			<div class="page-image">
-				<img src="images/data_collection_images/workflow.png" alt="Dataset">
-			</div>
-
-			<div class="page-text">
-
-				<h2>Collected Dataset</h2>
-
-				<p>
-					The final dataset includes RGB, multispectral and thermal
-					imagery together with field observations that are processed
-					during the analysis phase.
-				</p>
-
-			</div>
-
-		</section>
-<div class="section-divider"></div>
+		<div class="section-divider"></div>
+		
+	
 	</main>
 
 	<section class="page-end">
