@@ -556,3 +556,102 @@ GRAPH AREA
     height:100% !important;
 
 }
+
+/* ==========================================
+   STRESS LEGEND
+========================================== */
+
+#stress-legend{
+
+    position:absolute;
+
+    bottom:20px;
+    left:20px;
+
+    z-index:1000;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:14px 16px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+
+    font-size:13px;
+
+    color:#333;
+
+    min-width:170px;
+
+}
+
+.legend-title{
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.legend-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:5px 0;
+
+}
+
+.legend-color{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:3px;
+
+    border:1px solid rgba(0,0,0,.15);
+
+    flex-shrink:0;
+
+}
+
+.legend-label{
+
+    color:#555;
+
+}
+
+.stress0{
+
+    background:#2e7d32;
+
+}
+
+.stress1{
+
+    background:#add66b;
+
+}
+
+.stress2{
+
+    background:#fff59d;
+
+}
+
+.stress3{
+
+    background:#ffb74d;
+
+}
+
+.stress4{
+
+    background:#d32f2f;
+
+}
