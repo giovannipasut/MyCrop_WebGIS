@@ -84,7 +84,11 @@ fetch(
 
                         if (selectedLayer) {
 
-                            applyCellStyle(selectedLayer);
+                            const oldLayer = selectedLayer;
+
+                            selectedLayer = null;
+
+                            applyCellStyle(oldLayer);
 
                         }
 
@@ -96,7 +100,7 @@ fetch(
 
                         console.log("Selected cell:", selectedCell);
 
-                        updateDashboard();
+                        updateUAVChart();
 
                     }
 

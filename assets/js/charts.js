@@ -234,13 +234,107 @@ function createUAVChart() {
 
             responsive: true,
 
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+
+            interaction: {
+
+                mode: "index",
+                intersect: false
+
+            },
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            },
+
+            scales: {
+
+                y: {
+
+                    min: 0,
+                    max: 1
+
+                }
+
+            }
 
         }
 
     });
 
 }
+
+// BUILD UAV DATASETS
+
+function buildUAVDatasets(data) {
+
+    const datasets = [];
+
+    // NDVI
+    if (document.querySelector("#uav-selector .ndvi").classList.contains("active")) {
+
+        datasets.push({
+
+            label: "NDVI",
+            data: data.map(row => row.NDVI),
+            borderColor: "#2f6fdb",
+            backgroundColor: "#2f6fdb",
+            tension: 0.25
+
+        });
+
+    }
+
+    // GNDVI
+    if (document.querySelector("#uav-selector .gndvi").classList.contains("active")) {
+
+        datasets.push({
+
+            label: "GNDVI",
+            data: data.map(row => row.GNDVI),
+            borderColor: "#ef6c00",
+            backgroundColor: "#ef6c00",
+            tension: 0.25
+
+        });
+
+    }
+
+    // NDRE
+    if (document.querySelector("#uav-selector .ndre").classList.contains("active")) {
+
+        datasets.push({
+
+            label: "NDRE",
+            data: data.map(row => row.NDRE),
+            borderColor: "#f9a825",
+            backgroundColor: "#f9a825",
+            tension: 0.25
+
+        });
+
+    }
+
+    return datasets;
+
+}
+
+function updateUAVChartGraph(data) {
+
+    uavChart.data.labels = data.map(row => row.date);
+
+    uavChart.data.datasets = buildUAVDatasets(data);
+
+    uavChart.update();
+
+}
+
 
 // ==========================================
 // FULLSCREEN

@@ -16,7 +16,11 @@ let uavDatabase = [];
 function selectDate(date) {
 
     selectedDate = date;
+
     selectedCell = null;
+    selectedLayer = null;
+
+    clearUAVChart();
 
     console.clear();
 
@@ -165,8 +169,31 @@ function updateUAVChart() {
     if (!selectedDate) return;
     if (!selectedCell) return;
 
-    console.log("Date:", selectedDate);
+    const uavDate = selectedDate.replace(/-/g, "_");
+
+    const selectedYear = selectedDate.substring(0, 4);
+
+    const filteredData = uavDatabase.filter(row => {
+
+        return (
+            row.cell_id === selectedCell &&
+            row.year.toString() === selectedYear &&
+            row.date <= uavDate
+        );
+
+    });
+
+    filteredData.sort((a, b) => a.date.localeCompare(b.date));
+
+    console.log("=================================");
+    console.log("Updating UAV chart");
     console.log("Cell:", selectedCell);
+    console.log("Date:", uavDate);
+    console.log("Records:", filteredData.length);
+    console.log(filteredData);
+    console.log("=================================");
+
+    updateUAVChartGraph(filteredData);
 
 }
 
@@ -176,9 +203,17 @@ document.querySelectorAll(".index-pill").forEach(button => {
 
         button.classList.toggle("active");
 
-        if (selectedDate) {
+        // Aggiorna il grafico Sentinel
+        if (selectedDate && button.closest("#sentinel-selector")) {
 
             updateSentinelSection();
+
+        }
+
+        // Aggiorna il grafico UAV
+        if (selectedDate && selectedCell && button.closest("#uav-selector")) {
+
+            updateUAVChart();
 
         }
 
@@ -191,3 +226,15 @@ document.querySelectorAll(".index-pill").forEach(button => {
 // ==========================================
 
 loadUAVDatabase();
+
+// function to clear the UAV chart
+function clearUAVChart() {
+
+    if (!uavChart) return;
+
+    uavChart.data.labels = [];
+    uavChart.data.datasets = [];
+
+    uavChart.update();
+
+}
