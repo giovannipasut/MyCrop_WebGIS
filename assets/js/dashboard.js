@@ -6,6 +6,7 @@
 
 let selectedDate = null;
 let selectedCell = null;
+let uavDatabase = [];
 
 
 // ==========================================
@@ -39,6 +40,46 @@ function selectCell(cellId) {
     selectedCell = cellId;
 
     console.log("Selected cell:", selectedCell);
+
+}
+
+// ==========================================
+// UAV DATABASE
+// ==========================================
+
+async function loadUAVDatabase() {
+
+    const response = await fetch("data/UAV_database.csv");
+
+    const text = await response.text();
+
+    const rows = text.trim().split("\n");
+
+    const headers = rows[0].split(",");
+
+    uavDatabase = rows.slice(1).map(row => {
+
+        const values = row.split(",");
+
+        let obj = {};
+
+        headers.forEach((h, i) => {
+
+            obj[h.trim()] = values[i].trim();
+
+        });
+
+        obj.cell_id = Number(obj.cell_id);
+        obj.Stress = Number(obj.Stress);
+
+        return obj;
+
+    });
+
+    console.log("=================================");
+    console.log("UAV database loaded");
+    console.log("Records:", uavDatabase.length);
+    console.log("=================================");
 
 }
 
@@ -90,7 +131,27 @@ function updateSentinelSection() {
 
 function updateUAVLayer() {
 
-    console.log("UAV layer updated");
+    if (!selectedDate) return;
+
+    const uavDate = selectedDate.replace(/-/g, "_");
+
+    const stressMap = {};
+
+    uavDatabase
+        .filter(row => row.date === uavDate)
+        .forEach(row => {
+
+            stressMap[row.cell_id] = row.Stress;
+
+        });
+
+    console.log("=================================");
+    console.log("Updating UAV layer");
+    console.log("Date:", uavDate);
+    console.log("Cells:", Object.keys(stressMap).length);
+    console.log("=================================");
+
+    colorGrid(stressMap);
 
 }
 
@@ -120,3 +181,9 @@ document.querySelectorAll(".index-pill").forEach(button => {
     });
 
 });
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+
+loadUAVDatabase();
