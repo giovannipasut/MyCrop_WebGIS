@@ -7,7 +7,7 @@ let sentinelChart = null;
 let uavChart = null;
 
 // ==========================================
-// UAV STRESS BACKGROUND PLUGIN (this plugin is not fully implemented yet, now it only logs the stress data to the console)
+// UAV STRESS BACKGROUND PLUGIN 
 // ==========================================
 
 const stressBackgroundPlugin = {
