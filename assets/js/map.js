@@ -35,8 +35,7 @@ L.tileLayer(
 // ==========================================
 
 let uavGridLayer = null;
-let selectedCell = null;
-let selectedCellId = null;
+let selectedLayer = null;
 let currentStressMap = {};
 
 fetch(
@@ -61,41 +60,43 @@ fetch(
 
                     mouseover: function () {
 
+                        if (layer === selectedLayer) return;
+
                         layer.setStyle({
-                            color: "#2196f3",
-                            weight: 2
+
+                            color: "#0066ff",
+
+                            weight: 2.5
+
                         });
 
                     },
 
                     mouseout: function () {
 
-                        uavGridLayer.resetStyle(layer);
+                        if (layer === selectedLayer) return;
+
+                        applyCellStyle(layer);
 
                     },
 
                     click: function () {
 
-                        // ripristina la cella precedente
-                        if (selectedCell) {
+                        if (selectedLayer) {
 
-                            uavGridLayer.resetStyle(selectedCell);
+                            applyCellStyle(selectedLayer);
 
                         }
 
-                        // salva nuova selezione
-                        selectedCell = layer;
-                        selectedCellId = feature.properties.cell_id;
+                        selectedLayer = layer;
 
-                        // evidenzia
-                        layer.setStyle({
+                        selectedCell = feature.properties.cell_id;
 
-                            color: "#0066ff",
-                            weight: 3
+                        applyCellStyle(layer);
 
-                        });
+                        console.log("Selected cell:", selectedCell);
 
-                        console.log("Selected cell:", selectedCellId);
+                        updateDashboard();
 
                     }
 
@@ -114,51 +115,73 @@ fetch(
 
     });
 
+
+// function getStressStyle(cellId) for retrieving the style of a cell based on its stress value
+function applyCellStyle(layer) {
+
+    const cellId = layer.feature.properties.cell_id;
+
+    const stress = currentStressMap[cellId];
+
+    let fill = "#ffffff";
+    let opacity = 0;
+
+    if (stress !== undefined) {
+
+        opacity = 0.8;
+
+        if (stress < 0.5)
+            fill = "#0b7d3b";
+
+        else if (stress < 1.5)
+            fill = "#9bd35a";
+
+        else if (stress < 2.5)
+            fill = "#fff6a0";
+
+        else if (stress < 3.5)
+            fill = "#ff944d";
+
+        else
+            fill = "#b30000";
+    }
+
+    layer.setStyle({
+
+        color: layer === selectedLayer ? "#0066ff" : "#222",
+
+        weight: layer === selectedLayer ? 3 : 0.6,
+
+        fillColor: fill,
+
+        fillOpacity: opacity
+
+    });
+
+}
+
+// function colorGrid(stressMap) for coloring the UAV grid based on the stress values
+
 function colorGrid(stressMap) {
 
     currentStressMap = stressMap;
 
     if (!uavGridLayer) return;
 
-    uavGridLayer.eachLayer(function(layer){
+    uavGridLayer.eachLayer(layer => {
 
-        const cell = layer.feature.properties.cell_id;
-
-        const value = stressMap[cell];
-
-        let fill = "#ffffff";
-        let opacity = 0;
-
-        if (value !== undefined) {
-
-            opacity = 0.8;
-
-            if (value < 0.5)
-                fill = "#0b7d3b";
-
-            else if (value < 1.5)
-                fill = "#9bd35a";
-
-            else if (value < 2.5)
-                fill = "#fff6a0";
-
-            else if (value < 3.5)
-                fill = "#ff944d";
-
-            else
-                fill = "#b30000";
-
-        }
-
-        layer.setStyle({
-
-            color: "#222",
-            weight: 0.6,
-            fillColor: fill,
-            fillOpacity: opacity
-
-        });
+        applyCellStyle(layer);
 
     });
 
 }
+
+layer.setStyle({
+
+    color: "#222",
+    weight: 0.6,
+    fillColor: fill,
+    fillOpacity: opacity
+
+});
+

@@ -162,7 +162,11 @@ function updateUAVLayer() {
 
 function updateUAVChart() {
 
-    console.log("UAV chart updated");
+    if (!selectedDate) return;
+    if (!selectedCell) return;
+
+    console.log("Date:", selectedDate);
+    console.log("Cell:", selectedCell);
 
 }
 
