@@ -203,14 +203,14 @@ document.querySelectorAll(".index-pill").forEach(button => {
 
         button.classList.toggle("active");
 
-        // Aggiorna il grafico Sentinel
+        // update the UAV chart if a date and cell are selected and the button is in the UAV selector
         if (selectedDate && button.closest("#sentinel-selector")) {
 
             updateSentinelSection();
 
         }
 
-        // Aggiorna il grafico UAV
+        // update the UAV chart if a date and cell are selected and the button is in the UAV selector
         if (selectedDate && selectedCell && button.closest("#uav-selector")) {
 
             updateUAVChart();

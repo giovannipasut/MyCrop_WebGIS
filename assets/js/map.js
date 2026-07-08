@@ -2,11 +2,11 @@
 // MYCROP WEBGIS
 // ==========================================
 
-// Coordinate del campo sperimentale
+// coordinates of the field
 
 const field = [52.238111, 6.865472];
 
-// Creazione mappa
+// map creation using Leaflet.js
 
 const map = L.map('leaflet-map', {
 
