@@ -334,6 +334,32 @@ body {
 
 }
 
+
+.platform-card{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+}
+
+.platform-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.platform-card:hover img{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
 /* =====================================================
    VEGETATION TABLE
 ===================================================== */
