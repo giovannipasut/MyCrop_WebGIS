@@ -1,33 +1,45 @@
-Directive by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# MyCrop WebGIS
 
+## Overview
 
-A simple single pager built around an angular motif (powered by SVG awesomeness).
-Should work great for a landing page. Also includes default styling for a bunch of
-standard page elements (uncomment the huge block of commented-out HTML to see it).
+MyCrop WebGIS is an interactive web-based platform for multi-temporal crop stress monitoring. It integrates geospatial data and remote sensing products to support the visualization and analysis of agricultural field conditions.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+The platform focuses on UAV-based multispectral and thermal imagery, enabling users to explore vegetation indices, monitor their temporal evolution, and investigate spatial patterns of crop stress.
 
-(* = Not included)
+## Main Features
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+- **Interactive mapping:** visualization of the study area and geospatial datasets.
+- **Data collection:** overview of remote sensing data acquisition campaigns.
+- **Data analysis:** visualization and exploration of vegetation indices.
+- **Multi-temporal monitoring:** comparison of crop conditions across different acquisition dates.
+- **Crop stress visualization:** spatial exploration of indicators related to crop health.
 
-AJ
-aj@lkn.io | @ajlkn
+## Technologies
 
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
+- HTML5
+- CSS3 / SCSS
+- JavaScript
+- Leaflet
+- Chart.js
+- GeoServer
 
+## Repository Structure
 
-Credits:
+- `index.html` — main landing page
+- `map.html` — interactive map
+- `data_collection.html` — data acquisition information
+- `analysis.html` — data analysis dashboard
+- `field_indices.html` — vegetation indices information
+- `assets/` — stylesheets, scripts, and supporting resources
+- `images/` — images used by the interface
+- `data/` — data resources used by the WebGIS
 
-	Demo Images:
-		Unsplash (unsplash.com)
+## Related Repository
 
-	Icons:
-		Font Awesome (fontawesome.io)
+The [MyCrop_processing](https://github.com/giovannipasut/MyCrop_processing) repository contains the Python-based geospatial processing workflows used to prepare and analyse UAV-derived datasets.
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Together, the two repositories support a workflow from remote sensing data processing to interactive visualization of crop conditions.
+
+## License
+
+See `LICENSE.txt` for licensing information.
